@@ -776,9 +776,9 @@ class TFTacotron2(tf.keras.Model):
         self.maximum_iterations = maximum_iterations
 
     def _build(self):
-        input_ids = np.array([[1, 2, 3, 4, 5, 6, 7, 8, 9]])
-        input_lengths = np.array([9])
-        speaker_ids = np.array([0])
+        input_ids = np.array([[1, 2, 3, 4, 5, 6, 7, 8, 9]], dtype=np.int32)
+        input_lengths = np.array([9], dtype=np.int32)
+        speaker_ids = np.array([0], dtype=np.int32)
         mel_outputs = np.random.normal(size=(1, 50, 80)).astype(np.float32)
         mel_lengths = np.array([50])
         self(
