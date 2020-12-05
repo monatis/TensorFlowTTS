@@ -777,24 +777,16 @@ class TFTacotron2(tf.keras.Model):
 
     def _build(self):
         input_ids = np.array([[1, 2, 3, 4, 5, 6, 7, 8, 9]], dtype=np.int32)
-        input_lengths = np.array([9], dtype=np.int32)
-        speaker_ids = np.array([0], dtype=np.int32)
-        mel_outputs = np.random.normal(size=(1, 50, 80)).astype(np.float32)
-        mel_lengths = np.array([50])
         self(
-            input_ids,
-            input_lengths,
-            speaker_ids
+            input_ids
         )
 
     def call(
         self,
-        input_ids,
-        input_lengths,
-        speaker_ids,
+        input_ids
         **kwargs,
     ):
-        return self.inference(input_ids, input_lengths, speaker_ids)
+        return self.inference(input_ids, np.array([input_ids.shape[1]], dtype=np.int32), np.array([0], dtype=np.int32))
 
     @tf.function(
         experimental_relax_shapes=True,
