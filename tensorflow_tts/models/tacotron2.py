@@ -784,11 +784,7 @@ class TFTacotron2(tf.keras.Model):
         self(
             input_ids,
             input_lengths,
-            speaker_ids,
-            mel_outputs,
-            mel_lengths,
-            10,
-            training=True,
+            speaker_ids
         )
 
     def call(
