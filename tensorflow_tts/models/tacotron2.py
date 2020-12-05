@@ -794,7 +794,7 @@ class TFTacotron2(tf.keras.Model):
         speaker_ids,
         **kwargs,
     ):
-        return self.inference(input_ids, input_lengths, speaker_ids, **kwargs)
+        return self.inference(input_ids, input_lengths, speaker_ids)
 
     @tf.function(
         experimental_relax_shapes=True,
