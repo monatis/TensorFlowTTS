@@ -783,7 +783,7 @@ class TFTacotron2(tf.keras.Model):
 
     def call(
         self,
-        input_ids
+        input_ids,
         **kwargs,
     ):
         return self.inference(input_ids, np.array([input_ids.shape[1]], dtype=np.int32), np.array([0], dtype=np.int32))
