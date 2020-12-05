@@ -786,7 +786,8 @@ class TFTacotron2(tf.keras.Model):
         input_ids,
         **kwargs,
     ):
-        return self.inference(input_ids, np.array([int(input_ids.shape[-1])], dtype=np.int32), np.array([0], dtype=np.int32))
+        input_ids = np.array([[1, 2, 3, 4, 5, 6, 7, 8, 9]], dtype=np.int32)
+        return self.inference(input_ids, np.array([9], dtype=np.int32), np.array([0], dtype=np.int32))
 
     @tf.function(
         experimental_relax_shapes=True,
